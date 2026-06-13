@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Original Navbar Language Toggle Kit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Theme Toggle Button (With Sun/Moon morph animation) -->
+  <button class="theme-btn" title="Toggle Dark/Light Mode">
+    <!-- Sun Icon -->
+    <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="4"></circle>
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+    </svg>
+    <!-- Moon Icon -->
+    <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3a9 9 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+    </svg>
+  </button>
+
+  <!-- Main Demo Wrapper -->
+  <main class="demo-wrapper">
+    <!-- Original Navbar Language Toggle Button -->
+    <div class="lang-toggle-container">
+      <div class="lang-glider"></div>
+      <button class="lang-en-btn lang-btn active" aria-label="English">EN</button>
+      <button class="lang-es-btn lang-btn" aria-label="España">ES</button>
+    </div>
+
+    <!-- Demonstration Translatable Content -->
+    <h1 class="demo-title" data-en="Welcome to Drhu Homestay" data-es="Bienvenido a Drhu Homestay">
+      Welcome to Drhu Homestay
+    </h1>
+    
+    <p class="demo-text" data-en="Enjoy your beachside vacation with premium amenities." data-es="Disfruta de tus vacaciones junto a la playa con servicios de primera calidad.">
+      Enjoy your beachside vacation with premium amenities.
+    </p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+/* -------------------------------------------------------------
+ * ORIGINAL NAVBAR LANGUAGE TOGGLE - CSS
+ * Compiled from Tailwind styling of Drhu Homestay navbar.
+ * ------------------------------------------------------------- */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap');
+
+:root {
+  --primary-color: #0ea5e9; /* Sky blue matching your theme */
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: #f8fafc;
+  color: #0f172a;
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Dark Mode Background */
+html.dark body {
+  background-color: #0d0f14; /* Deeper premium dark */
+  color: #f8fafc;
+}
+
+/* Background texture glows */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at 15% 20%, light-dark(rgba(14, 165, 233, 0.08), rgba(14, 165, 233, 0.15)) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, light-dark(rgba(139, 92, 246, 0.06), rgba(139, 92, 246, 0.12)) 0%, transparent 40%);
+  transition: background-color 0.3s ease;
+}
+
+/* Dotted grid mesh pattern */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image: radial-gradient(light-dark(rgba(15, 23, 42, 0.05), rgba(255, 255, 255, 0.03)) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(circle at center, black, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%);
+}
+
+/* Main Demo Wrapper */
+.demo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  transform: scale(2.2); /* Scales the preview up for easy viewing/testing */
+  transform-origin: center;
+}
+
+.demo-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.demo-text {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #64748b;
+  margin: 0;
+}
+
+html.dark .demo-text {
+  color: #94a3b8;
+}
+
+/* --- The Language Toggle Pill Container --- */
+.lang-toggle-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40px 40px; /* Locked columns (Rule 5) */
+  grid-column-gap: 8px; /* Consistent column gap of 8px (Rule 2) */
+  align-items: center;
+  width: fit-content; /* Dynamic width to prevent border-box rounding errors (Rule 3) */
+  height: 34px; /* Proportional track height (Rule 6) */
+  padding: 3px 8px; /* Symmetrical: 3px top/bottom, 8px left/right (Rule 3) */
+  border-radius: 9999px;
+  border: 1px solid #e2e8f0;
+  background-color: rgba(241, 245, 249, 0.5); /* slate-100/50 */
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06); /* shadow-inner */
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+
+html.dark .lang-toggle-container {
+  border-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+}
+
+/* --- Gliding Active indicator Background --- */
+.lang-glider {
+  position: absolute;
+  top: 50%; /* Center vertically to the subpixel (Rule 6) */
+  left: 8px; /* Starts at left padding offset (Rule 1 & 3) */
+  width: 40px; /* Internal text width (~16px) + 12px horizontal padding each side = 40px (Rule 4) */
+  height: 26px; /* Track height (34px) - 2px borders - 6px padding = 26px (Rule 6) */
+  transform: translateY(-50%) translateX(0); /* Perfect vertical center alignment */
+  background-color: #ffffff;
+  border-radius: 9999px;
+  border: 1px solid rgba(226, 232, 240, 0.8); /* slate-200/80 */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-md */
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  pointer-events: none;
+  z-index: 1;
+}
+
+html.dark .lang-glider {
+  background-color: var(--primary-color);
+  border-color: rgba(14, 165, 233, 0.8);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+/* --- Buttons EN and BM --- */
+.lang-btn {
+  position: relative;
+  z-index: 10;
+  width: 40px; /* Matches active pill width for visual balance (Rule 5) */
+  height: 26px; /* Vertically centered height inside container */
+  flex-shrink: 0; /* Prevents buttons from squeezing due to borders */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* Explicit horizontal centering */
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 500; /* Medium for inactive state */
+  line-height: normal; /* Resolves font-metric vertical offsets */
+  background: none;
+  border: none;
+  padding: 0 0 0 1px; /* Optically shifts text 1px to the right for perfect bubble centering */
+  margin: 0; /* Resets default browser button margins */
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+  color: #64748b; /* slate-500 */
+  transform: scale(1);
+}
+
+html.dark .lang-btn {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.lang-btn.active {
+  color: #0f172a; /* slate-900 */
+  font-weight: 700; /* Bold for active state */
+  transform: scale(1.1);
+}
+
+html.dark .lang-btn.active {
+  color: #ffffff;
+}
+
+/* Optional scale reduction for click response */
+.lang-btn:active {
+  transform: scale(0.95);
+}
+
+/* --- Dark Mode Switch for Demo --- */
+.theme-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: light-dark(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid light-dark(rgba(0, 0, 0, 0.08), rgba(255, 255, 255, 0.08));
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: light-dark(#334155, #f8fafc);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.theme-btn:hover {
+  transform: scale(1.08);
+  border-color: light-dark(rgba(0, 0, 0, 0.15), rgba(255, 255, 255, 0.2));
+}
+
+.theme-btn:active {
+  transform: scale(0.95);
+}
+
+/* Icons positioning and transitions */
+.theme-icon {
+  grid-area: 1 / 1;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+}
+
+/* Light mode state: show Moon icon, hide Sun icon */
+.theme-icon-sun {
+  opacity: 0;
+  transform: rotate(90deg) scale(0);
+}
+
+.theme-icon-moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* Dark mode state (target html.dark): show Sun icon, hide Moon icon */
+html.dark .theme-icon-sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+html.dark .theme-icon-moon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0);
+}

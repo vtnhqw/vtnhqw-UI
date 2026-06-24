@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Segmented Toggle - UI Kit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Theme Toggle Button (With Sun/Moon scale-rotate morph animation) -->
+  <button class="theme-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Dark/Light Mode">
+    <!-- Sun Icon -->
+    <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="4"></circle>
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+    </svg>
+    <!-- Moon Icon -->
+    <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3a9 9 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+    </svg>
+  </button>
+
+  <!-- Main Showcase Container -->
+  <main class="demo-container">
+    <header class="demo-header">
+      <h1 class="demo-title">Segmented Toggle</h1>
+      <p class="demo-description">A lightweight, pixel-perfect gliding toggle with smooth transition animations.</p>
+    </header>
+
+    <!-- Segmented Toggle Component -->
+    <div class="segmented" id="segmented" role="tablist" aria-label="Inbox updates and changelog selector">
+      <span class="segmented__pill" id="pill"></span>
+      <button class="segmented__btn" id="tab-inbox" role="tab" aria-selected="true" aria-controls="panel-inbox" tabindex="0" data-tab="inbox">Inbox</button>
+      <button class="segmented__btn" id="tab-whatsnew" role="tab" aria-selected="false" aria-controls="panel-whatsnew" tabindex="-1" data-tab="whatsnew">What's new</button>
+    </div>
+
+    <!-- Content Showcase Card -->
+    <section class="showcase-card">
+      
+      <!-- Panel 1: Inbox Content -->
+      <div class="tab-panel" id="panel-inbox" role="tabpanel" aria-labelledby="tab-inbox">
+        <!-- Item 1 -->
+        <div class="demo-item">
+          <div class="demo-item-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <div class="demo-item-details">
+            <div class="demo-item-title-row">
+              <h3 class="demo-item-title">Design Review Approved</h3>
+              <span class="demo-item-badge">New</span>
+            </div>
+            <p class="demo-item-desc">The UI engineering team approved the segment glider transition spec. Ready to merge.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="demo-item">
+          <div class="demo-item-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <div class="demo-item-details">
+            <div class="demo-item-title-row">
+              <h3 class="demo-item-title">Security Key Rotated</h3>
+              <span class="demo-item-badge">System</span>
+            </div>
+            <p class="demo-item-desc">Production API tokens were cycled successfully. No downtime was recorded during updates.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="demo-item">
+          <div class="demo-item-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <div class="demo-item-details">
+            <div class="demo-item-title-row">
+              <h3 class="demo-item-title">Kit Packager Deployed</h3>
+              <span class="demo-item-badge">Success</span>
+            </div>
+            <p class="demo-item-desc">The Custom UI Component Packager is fully integrated into the local workspace environment.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 2: What's New Content -->
+      <div class="tab-panel" id="panel-whatsnew" role="tabpanel" aria-labelledby="tab-whatsnew">
+        <!-- Item 1 -->
+        <div class="demo-item">
+          <div class="demo-item-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </div>
+          <div class="demo-item-details">
+            <div class="demo-item-title-row">
+              <h3 class="demo-item-title">Adaptive Glider Transitions</h3>
+              <span class="demo-item-badge">v1.1</span>
+            </div>
+            <p class="demo-item-desc">Glider pill transitions are customized dynamically on hover, resize events, and layout reflow bounds.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="demo-item">
+          <div class="demo-item-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+          </div>
+          <div class="demo-item-details">
+            <div class="demo-item-title-row">
+              <h3 class="demo-item-title">Zero Flicker State Paint</h3>
+              <span class="demo-item-badge">v1.0</span>
+            </div>
+            <p class="demo-item-desc">Incorporates temporary transition blocking rules. Restores active tabs instantly on page refreshes.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="demo-item">
+          <div class="demo-item-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <div class="demo-item-details">
+            <div class="demo-item-title-row">
+              <h3 class="demo-item-title">Pure CSS Theme Scopes</h3>
+              <span class="demo-item-badge">v1.0</span>
+            </div>
+            <p class="demo-item-desc">Styling variables are grouped logically inside :root and html.dark CSS files. Customize instantly.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
